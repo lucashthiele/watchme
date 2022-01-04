@@ -32,7 +32,7 @@ export function App() {
 
   useEffect(() => {
     api
-      .get<MovieProps[]>(`movies/?Genre_id=${selectedGenreId}`)
+      .get<MovieProps[]>(`movies?Genre_id=${selectedGenreId}`)
       .then((response) => {
         setMovies(response.data);
       });
@@ -50,9 +50,7 @@ export function App() {
         selectedGenreId={selectedGenreId}
         setSelectedGenreId={setSelectedGenreId}
       />
-      <Content
-        movies={movies}
-        selectedGenre={selectedGenre}/>
+      <Content movies={movies} selectedGenre={selectedGenre} />
     </div>
   );
 }

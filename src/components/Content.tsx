@@ -4,7 +4,7 @@ import "../styles/content.scss";
 
 interface GenreResponseProps {
   id: number;
-  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+  name: "action" | "comedy" | "documentary" | "drama" | "horror" | "family";
   title: string;
 }
 
@@ -24,18 +24,18 @@ interface ContentProps {
   movies: MovieProps[];
 }
 
-export function Content(props: ContentProps) {
+export function Content({ selectedGenre, movies }: ContentProps) {
   return (
     <div className="container">
       <header>
         <span className="category">
-          Categoria:<span> {props.selectedGenre.title}</span>
+          Categoria:<span> {selectedGenre.title}</span>
         </span>
       </header>
 
       <main>
         <div className="movies-list">
-          {props.movies.map((movie) => (
+          {movies.map((movie) => (
             <MovieCard
               key={movie.imdbID}
               title={movie.Title}
